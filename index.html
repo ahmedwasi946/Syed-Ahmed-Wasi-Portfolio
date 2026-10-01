@@ -1,476 +1,969 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alex Carter | Frontend Developer & UI Designer</title>
-    <link rel="stylesheet" href="st.css" />
-    <script
-      src="https://kit.fontawesome.com/71a3d56e56.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- Header / Navigation -->
-    <header id="home">
-      <div class="nav-head">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Syed Ahmed Wasi | Backend Developer</title>
+
+    <meta name="description" content="Syed Ahmed Wasi - Backend Developer and Cloud Security Enthusiast. Exploring Java, Spring Boot, AWS and Cybersecurity.">
+
+    <link rel="stylesheet" href="st.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* Updated portfolio sections */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .skill-group {
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            background: rgba(255,255,255,0.035);
+            transition: 0.3s ease;
+        }
+
+        .skill-group:hover {
+            transform: translateY(-5px);
+            border-color: #42d392;
+        }
+
+        .skill-group h3 {
+            color: #42d392;
+            margin-bottom: 18px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            padding: 9px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #fff;
+            background: rgba(66,211,146,0.1);
+            border: 1px solid rgba(66,211,146,0.2);
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .experience-card {
+            padding: 25px;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            transition: 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: #42d392;
+        }
+
+        .experience-card .exp-icon {
+            font-size: 25px;
+            color: #42d392;
+            margin-bottom: 18px;
+        }
+
+        .experience-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .experience-card h4 {
+            color: #42d392;
+            margin-bottom: 12px;
+        }
+
+        .experience-card p {
+            line-height: 1.7;
+            color: #aaa;
+        }
+
+        .terminal-section {
+            padding: 80px 8%;
+        }
+
+        .terminal-window {
+            max-width: 850px;
+            margin: 35px auto 0;
+            background: #101820;
+            border: 1px solid #263b35;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 15px 20px;
+            background: #1b292d;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .terminal-red { background: #ff5f57; }
+        .terminal-yellow { background: #febc2e; }
+        .terminal-green { background: #28c840; }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: monospace;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .terminal-body p {
+            margin: 7px 0;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .terminal-command {
+            color: #42d392;
+        }
+
+        .terminal-output {
+            color: #d0d7de;
+            padding-left: 15px;
+        }
+
+        .terminal-cursor {
+            color: #42d392;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero-social a,
+        .footer-social a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .hero-social a:hover,
+        .footer-social a:hover {
+            color: #42d392;
+        }
+
+        .contact-location {
+            color: #aaa;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        .contact-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            color: #42d392;
+        }
+
+        @media(max-width: 768px) {
+            .skill-groups,
+            .experience-container {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal-section {
+                padding: 60px 5%;
+            }
+
+            .terminal-body {
+                padding: 18px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER / NAVIGATION ================= -->
+
+<header id="home">
+
+    <div class="nav-head">
+
         <div class="logo">
-          <img src="./assets/logo.png" alt="Alex Carter Logo" />
-          <h2>Alex</h2>
-          <div class="circle"></div>
-        </div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="nav-button">
-          Contact Me <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </div>
-
-      <!-- Hero Section -->
-      <div class="hero-head">
-        <div class="hero-left">
-          <h5>Hi, I'm</h5>
-          <h1>Alex <span>Carter</span></h1>
-          <h2>Frontend Developer & UI Designer</h2>
-          <p>
-            I build modern, responsive websites with clean code and beautiful design.
-          </p>
-          <div class="buttons">
-            <div class="hire">
-              Hire Me <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="view">
-              View My Work <i class="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-          <div class="icon">
-            <p>Follow me on</p>
-            <div class="st-icon"><i class="fa-brands fa-github"></i></div>
-            <div class="st-icon">
-              <i class="fa-brands fa-linkedin"></i>
-            </div>
-            <div class="st-icon">
-              <i class="fa-brands fa-twitter"></i>
-            </div>
-            <div class="st-icon">
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Glowing Profile Section -->
-        <div class="hero-right">
-          <div class="hero-img-frame">
-            <img src="./assets/unnamed.png" alt="Alex Carter Profile" />
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about">
-      <div class="about-wrapper">
-        <div class="about-left">
-          <img src="./assets/unnamed.png" alt="Alex Carter Working" />
-        </div>
-        <div class="about-right">
-          <h3>ABOUT ME</h3>
-          <h2>Passionate about creating digital experiences</h2>
-          <p>
-            I am a dedicated frontend developer with a focus on writing clean, accessible code and crafting intuitive digital user experiences. My expertise spans HTML/CSS, JavaScript, React, and UI prototyping.
-          </p>
-          <div class="about-image-containers">
-            <div class="about-user">
-              <div class="about-image"><i class="fa-regular fa-user"></i></div>
-              <div class="about-image-details">
-                <h3>2+</h3>
-                <p>Years Experience</p>
-              </div>
-            </div>
-            <div class="about-user">
-              <div class="about-image">
-                <i class="fa-regular fa-folder"></i>
-              </div>
-              <div class="about-image-details">
-                <h3>20+</h3>
-                <p>Projects Completed</p>
-              </div>
-            </div>
-            <div class="about-user">
-              <div class="about-image">
-                <i class="fa-regular fa-face-smile-beam"></i>
-              </div>
-              <div class="about-image-details">
-                <h3>15+</h3>
-                <p>Happy Clients</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="para-skills"><p>MY SKILLS</p></div>
-      <div class="tech">Technologies I work with</div>
-      <div class="skills-diag">
-        <div class="left-skills">
-          <div id="html" class="one-skill">
-            <div class="logo"><i class="fa-brands fa-html5"></i></div>
-            <div class="text-logo">HTML</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="html-skill" data-target="95%"></div>
-              </div>
-              <div class="skill-value-text">95%</div>
-            </div>
-          </div>
-          <div id="css" class="one-skill">
-            <div class="logo"><i class="fa-brands fa-css3-alt"></i></div>
-            <div class="text-logo">CSS</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="css-skill" data-target="90%"></div>
-              </div>
-              <div class="skill-value-text">90%</div>
-            </div>
-          </div>
-          <div id="js" class="one-skill">
-            <div class="logo"><i class="fa-brands fa-js"></i></div>
-            <div class="text-logo">JS</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="js-skill" data-target="85%"></div>
-              </div>
-              <div class="skill-value-text">85%</div>
-            </div>
-          </div>
-        </div>
-        <div class="right-skills">
-          <div id="react" class="one-skill">
-            <div class="logo"><i class="fa-brands fa-react"></i></div>
-            <div class="text-logo">REACT</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="react-skill" data-target="80%"></div>
-              </div>
-              <div class="skill-value-text">80%</div>
-            </div>
-          </div>
-          <div id="git" class="one-skill">
-            <div class="logo"><i class="fa-brands fa-git-alt"></i></div>
-            <div class="text-logo">Git & GitHub</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="git-skill" data-target="75%"></div>
-              </div>
-              <div class="skill-value-text">75%</div>
-            </div>
-          </div>
-          <div id="figma" class="one-skill">
-            <div class="logo">
-              <img src="./assets/figma.png" alt="Figma logo" />
-            </div>
-            <div class="text-logo">Figma</div>
-            <div class="c">
-              <div class="skill-box">
-                <div class="skill-value" id="figma-skill" data-target="85%"></div>
-              </div>
-              <div class="skill-value-text">85%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects Section -->
-    <section id="projects" class="featured-projects">
-      <h4>FEATURED PROJECTS</h4>
-      <h2>Some of my recent work</h2>
-      <div class="project-cards">
-        <div class="project-card">
-          <div class="project-img">
-            <img src="./assets/firstProjectimg.png" alt="Personal Portfolio Project Preview" />
-          </div>
-          <div class="project-exp">
-            <h3>Personal Portfolio</h3>
-            <p>A modern portfolio website <br />to showcase my skills</p>
-            <button>
-              View Project <span><i class="fa-solid fa-right-long"></i></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-img">
-            <img src="./assets/SecondProjectimg.png" alt="SaaS Dashboard Project Preview" />
-          </div>
-          <div class="project-exp">
-            <h3>SaaS Dashboard</h3>
-            <p>A responsive dashboard UI <br />for analytics and reporting</p>
-            <button>
-              View Project <span><i class="fa-solid fa-right-long"></i></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-img">
-            <img src="./assets/ThirdProjectimg.png" alt="Business Landing Page Project Preview" />
-          </div>
-          <div class="project-exp">
-            <h3>Business Landing Page</h3>
-            <p>
-              A modern landing page for <br />
-              business and startup
-            </p>
-            <button>
-              View Project <span><i class="fa-solid fa-right-long"></i></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonial">
-      <h4>TESTIMONIALS</h4>
-      <h2>What clients say about me</h2>
-      <div class="review-box">
-        <div class="review">
-          <div class="comment">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-          </div>
-          <div class="testimonial-para">
-            Alex is a highly skilled developer. <br />
-            He delivered the project on time and <br />exceeded my
-            expectations.
-          </div>
-          <div class="testimonial-card">
-            <div class="card-face">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fHww"
-                alt="John Doe"
-              />
-            </div>
-            <div class="card-exp">
-              <h3>John Doe</h3>
-              <p>Founder, DevStudio</p>
-            </div>
-            <div class="card-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="review">
-          <div class="comment">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-          </div>
-          <div class="testimonial-para">
-            Great communication and excellent <br />
-            work quality. I would love to work <br />
-            with Alex again!
-          </div>
-          <div class="testimonial-card">
-            <div class="card-face">
-              <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww"
-                alt="Sarah Williams"
-              />
-            </div>
-            <div class="card-exp">
-              <h3>Sarah Williams</h3>
-              <p>CEO, Technova</p>
-            </div>
-            <div class="card-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="review">
-          <div class="comment">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-          </div>
-          <div class="testimonial-para">
-            Very professional and dedicated. <br />The best developer I've
-            worked <br />
-            with so far.
-          </div>
-          <div class="testimonial-card">
-            <div class="card-face">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fHww"
-                alt="Michael Brown"
-              />
-            </div>
-            <div class="card-exp">
-              <h3>Michael Brown</h3>
-              <p>Product Manager</p>
-            </div>
-            <div class="card-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="get-in-touch">
-      <h3>GET IN TOUCH</h3>
-      <h2>Let's work together</h2>
-      <div class="whole">
-        <div class="left">
-          <div class="dabba">
-            <div class="icon"><i class="fa-solid fa-envelope icone"></i></div>
-            <div class="icon-info">
-              <h5>Email</h5>
-              <p>alexcarter.dev@gmail.com</p>
-            </div>
-          </div>
-          <div class="dabba">
-            <div class="icon"><i class="fa-solid fa-phone icone"></i></div>
-            <div class="icon-info">
-              <h5>Phone</h5>
-              <p>+1 (123) 456-7890</p>
-            </div>
-          </div>
-          <div class="dabba">
-            <div class="icon">
-              <i class="fa-solid fa-location-dot icone"></i>
-            </div>
-            <div class="icon-info">
-              <h5>Location</h5>
-              <p>San Francisco, CA</p>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <form action="#" method="post">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required /><br />
-            <input type="text" placeholder="Subject" id="sub" required />
-            <br />
-            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-            <br />
-            <button type="submit">
-              Send Message
-              <span><i class="fa-solid fa-location-arrow la"></i></span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <section class="more-info">
-        <div class="contain-logo">
-          <div class="logo">
-            <img src="./assets/logo.png" alt="Alex Carter Logo" />
-            <h2>Alex</h2>
+            <img src="./assets/logo.png" alt="Syed Ahmed Wasi Logo">
+            <h2>Ahmed</h2>
             <div class="circle"></div>
-          </div>
-          <div class="logo-info">
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#terminal">Terminal</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-button">
+            <a href="#contact" class="contact-link">
+                Contact Me <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <div class="hero-head">
+
+        <div class="hero-left">
+
+            <h5>HI, I'M</h5>
+
+            <h1>Syed Ahmed <span>Wasi</span></h1>
+
+            <h2>Backend Developer</h2>
+
             <p>
-              Building digital products, brands <br />
-              and experiences
+                Building my skills in Java Backend Development,
+                Spring Boot, AWS, and Cyber Security through
+                hands-on learning and continuous practice.
             </p>
-            <div class="icon">
-              <div class="st-icon"><i class="fa-brands fa-github"></i></div>
-              <div class="st-icon">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <div class="st-icon">
-                <i class="fa-brands fa-twitter"></i>
-              </div>
-              <div class="st-icon">
-                <i class="fa-brands fa-instagram"></i>
-              </div>
+
+            <div class="buttons">
+
+                <div class="hire">
+                    <a href="#contact" class="contact-link">
+                        Hire Me <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="view">
+                    <a href="#experience" class="contact-link">
+                        View My Experience
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
             </div>
-          </div>
+
+            <div class="icon hero-social">
+
+                <p>Follow me on</p>
+
+                <a href="https://github.com/ahmedwasi946"
+                   target="_blank" rel="noopener noreferrer"
+                   class="st-icon" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/syed-ahmed-wasi-244159402"
+                   target="_blank" rel="noopener noreferrer"
+                   class="st-icon" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="https://twitter.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="st-icon" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+            </div>
+
         </div>
-        <div class="links">
-          <!-- Quick Links -->
-          <div class="quick">
-            <h2>Quick Links</h2>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <!-- Services -->
-          <div class="quick">
-            <h2>Services</h2>
-            <ul>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">UI/UX Design</a></li>
-              <li><a href="#">Responsive Design</a></li>
-              <li><a href="#">Frontend Development</a></li>
-            </ul>
-          </div>
-          <!-- Resources -->
-          <div class="quick">
-            <h2>Resources</h2>
-            <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Tutorials</a></li>
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Resume</a></li>
-            </ul>
-          </div>
-          <!-- Newsletter -->
-          <div class="quick">
-            <h2>Newsletter</h2>
+
+
+        <div class="hero-right">
+
+            <div class="hero-img-frame">
+                <img src="./assets/unnamed.png"
+                     alt="Syed Ahmed Wasi Profile">
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= ABOUT SECTION ================= -->
+
+<section id="about" class="about">
+
+    <div class="section-title">
+
+        <span>ABOUT ME</span>
+
+        <h2>
+            Building my foundation in Backend Development
+            & Cloud Security
+        </h2>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p>
+            I'm a Computer Science and Engineering student
+            specializing in Cyber Security at SISTec, Bhopal.
+        </p>
+
+        <p>
+            I'm interested in building backend applications
+            and exploring how cloud technologies and security
+            practices work together.
+        </p>
+
+        <p>
+            Currently, I'm strengthening my skills in Java,
+            Spring Boot, Spring Data JPA, MySQL, and REST APIs.
+            I'm also exploring AWS and Microsoft Azure.
+        </p>
+
+        <p>
+            Alongside development, I'm actively learning
+            cybersecurity through hands-on platforms like
+            TryHackMe, exploring network security, cloud
+            security, and identity management.
+        </p>
+
+        <p>
+            I believe in learning by building, practising
+            consistently, and continuously improving my
+            technical skills.
+        </p>
+
+    </div>
+
+
+    <!-- Learning Highlights -->
+
+    <div class="stats">
+
+        <div class="stat-item">
+            <h3>Java</h3>
+            <p>Backend Development</p>
+        </div>
+
+        <div class="stat-item">
+            <h3>AWS</h3>
+            <p>Cloud Learning</p>
+        </div>
+
+        <div class="stat-item">
+            <h3>Top 6%</h3>
+            <p>TryHackMe</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS SECTION ================= -->
+
+<section id="skills" class="skills">
+
+    <div class="para-skills">
+        <p>MY SKILLS</p>
+    </div>
+
+    <div class="tech">
+        Technologies & Tools I Work With
+    </div>
+
+
+    <div class="skill-groups">
+
+        <!-- Backend -->
+
+        <div class="skill-group">
+
+            <h3>
+                <i class="fa-solid fa-code"></i>
+                Backend Development
+            </h3>
+
+            <div class="skill-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Spring MVC</span>
+                <span>Spring Data JPA</span>
+                <span>REST APIs</span>
+                <span>MySQL</span>
+            </div>
+
+        </div>
+
+
+        <!-- Cloud and Security -->
+
+        <div class="skill-group">
+
+            <h3>
+                <i class="fa-solid fa-cloud"></i>
+                Cloud & Cybersecurity
+            </h3>
+
+            <div class="skill-tags">
+                <span>AWS</span>
+                <span>Microsoft Azure</span>
+                <span>Cloud Security</span>
+                <span>IAM</span>
+                <span>Network Security</span>
+                <span>TryHackMe</span>
+            </div>
+
+        </div>
+
+
+        <!-- Tools -->
+
+        <div class="skill-group">
+
+            <h3>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                Development Tools
+            </h3>
+
+            <div class="skill-tags">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Postman</span>
+                <span>VS Code</span>
+                <span>Command Line</span>
+                <span>Linux Basics</span>
+            </div>
+
+        </div>
+
+
+        <!-- Frontend -->
+
+        <div class="skill-group">
+
+            <h3>
+                <i class="fa-solid fa-laptop-code"></i>
+                Web Fundamentals
+            </h3>
+
+            <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript Basics</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE SECTION ================= -->
+
+<section id="experience" class="featured-projects">
+
+    <h4>EXPERIENCE & INVOLVEMENT</h4>
+
+    <div class="section-title">
+
+        <span>MY JOURNEY</span>
+
+        <h2>Learning, Building & Contributing</h2>
+
+        <p>
+            Exploring technology while contributing
+            to student and developer communities.
+        </p>
+
+    </div>
+
+
+    <div class="experience-container">
+
+
+        <!-- MSA -->
+
+        <div class="experience-card">
+
+            <div class="exp-icon">
+                <i class="fa-solid fa-cloud"></i>
+            </div>
+
+            <h3>MSA Cloud Lead</h3>
+
+            <h4>SISTec, Bhopal</h4>
+
             <p>
-              Get the latest updates and news <br />delivered to your inbox
+                Exploring cloud technologies and AWS services
+                while supporting cloud learning initiatives
+                and technical community activities.
             </p>
-            <form action="#" method="post" class="newsletter-form">
-              <input type="email" placeholder="Enter Your Email" required />
-              <button type="submit">
-                <i class="fa-solid fa-location-arrow la"></i>
-              </button>
+
+        </div>
+
+
+        <!-- GFG -->
+
+        <div class="experience-card">
+
+            <div class="exp-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <h3>Campus Mantri</h3>
+
+            <h4>GeeksforGeeks</h4>
+
+            <p>
+                Participating in campus technical initiatives
+                and encouraging peer learning and engagement
+                with programming and developer communities.
+            </p>
+
+        </div>
+
+
+        <!-- VYUH -->
+
+        <div class="experience-card">
+
+            <div class="exp-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h3>Event & Training Manager</h3>
+
+            <h4>VYUH Community</h4>
+
+            <p>
+                Contributing to technical events, training
+                initiatives, event coordination and
+                community engagement.
+            </p>
+
+        </div>
+
+
+        <!-- TryHackMe -->
+
+        <div class="experience-card">
+
+            <div class="exp-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Cybersecurity Practice</h3>
+
+            <h4>TryHackMe</h4>
+
+            <p>
+                Among the top 6% globally, practising
+                cybersecurity concepts through hands-on
+                labs, CTF challenges and security exercises.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TERMINAL SECTION ================= -->
+
+<section id="terminal" class="terminal-section">
+
+    <div class="section-title">
+
+        <span>COMMAND LINE</span>
+
+        <h2>Inside My Terminal</h2>
+
+        <p>
+            A little introduction through the command line.
+        </p>
+
+    </div>
+
+
+    <div class="terminal-window">
+
+        <div class="terminal-header">
+
+            <span class="terminal-dot terminal-red"></span>
+            <span class="terminal-dot terminal-yellow"></span>
+            <span class="terminal-dot terminal-green"></span>
+
+            <span>ahmed@portfolio:~</span>
+
+        </div>
+
+
+        <div class="terminal-body">
+
+            <p>
+                <span class="terminal-command">$ whoami</span>
+            </p>
+
+            <p class="terminal-output">
+                Syed Ahmed Wasi
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ role</span>
+            </p>
+
+            <p class="terminal-output">
+                Backend Developer | Cloud Security Enthusiast
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ currently_learning</span>
+            </p>
+
+            <p class="terminal-output">
+                Java • Spring Boot • AWS • Cybersecurity
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ technologies</span>
+            </p>
+
+            <p class="terminal-output">
+                Java • MySQL • REST APIs • Git • GitHub
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ security_practice</span>
+            </p>
+
+            <p class="terminal-output">
+                TryHackMe • CTF • Network Security
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ mission</span>
+            </p>
+
+            <p class="terminal-output">
+                Learn. Build. Secure. Repeat.
+            </p>
+
+
+            <p>
+                <span class="terminal-command">$ </span>
+                <span class="terminal-cursor">_</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section id="contact" class="get-in-touch">
+
+    <h3>GET IN TOUCH</h3>
+
+    <h2>Let's Connect & Collaborate</h2>
+
+
+    <div class="whole">
+
+
+        <div class="left">
+
+            <!-- Email -->
+
+            <div class="dabba">
+
+                <div class="icon">
+                    <i class="fa-solid fa-envelope icone"></i>
+                </div>
+
+                <div class="icon-info">
+
+                    <h5>Email</h5>
+
+                    <p>
+                        <a href="mailto:ahmedwasi.dev@gmail.com"
+                           class="contact-link">
+                            ahmedwasi.dev@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Location -->
+
+            <div class="dabba">
+
+                <div class="icon">
+                    <i class="fa-solid fa-location-dot icone"></i>
+                </div>
+
+                <div class="icon-info">
+
+                    <h5>Location</h5>
+
+                    <p class="contact-location">
+                        Bhopal, Madhya Pradesh, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GitHub -->
+
+            <div class="dabba">
+
+                <div class="icon">
+                    <i class="fa-brands fa-github icone"></i>
+                </div>
+
+                <div class="icon-info">
+
+                    <h5>GitHub</h5>
+
+                    <p>
+                        <a href="https://github.com/ahmedwasi946"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="contact-link">
+                            github.com/ahmedwasi946
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Contact Form -->
+
+        <div class="right">
+
+            <form action="mailto:ahmedwasi.dev@gmail.com"
+                  method="post"
+                  enctype="text/plain">
+
+                <input type="text"
+                       name="Name"
+                       placeholder="Your Name"
+                       required>
+
+                <input type="email"
+                       name="Email"
+                       placeholder="Your Email"
+                       required>
+
+                <br>
+
+                <input type="text"
+                       name="Subject"
+                       placeholder="Subject"
+                       id="sub"
+                       required>
+
+                <br>
+
+                <textarea name="Message"
+                          id="message"
+                          placeholder="Your Message"
+                          rows="5"
+                          required></textarea>
+
+                <br>
+
+                <button type="submit">
+
+                    Send Message
+
+                    <span>
+                        <i class="fa-solid fa-location-arrow la"></i>
+                    </span>
+
+                </button>
+
             </form>
-          </div>
-        </div>
-      </section>
 
-      <div class="l"></div>
-      
-      <div class="last">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <section class="more-info">
+
+
+        <!-- Footer Logo -->
+
+        <div class="contain-logo">
+
+            <div class="logo">
+
+                <img src="./assets/logo.png"
+                     alt="Syed Ahmed Wasi Logo">
+
+                <h2>Ahmed</h2>
+
+                <div class="circle"></div>
+
+            </div>
+
+
+            <div class="logo-info">
+
+                <p>
+                    Building backend applications,
+                    exploring cloud and security.
+                </p>
+
+
+                <div class="footer-social">
+
+                    <a href="https://github.com/ahmedwasi946"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/in/syed-ahmed-wasi-244159402"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Quick Links -->
+
+        <div class="links">
+
+            <div class="quick">
+
+                <h2>Quick Links</h2>
+
+                <ul>
+
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#skills">Skills</a></li>
+
+                    <li><a href="#experience">Experience</a></li>
+
+                    <li><a href="#terminal">Terminal</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="l"></div>
+
+
+    <div class="last">
+
         <div class="privacy">
-          <p>© 2026 Alex Carter. All rights reserved.</p>
-        </div>
-        <div class="tc">
-          <div class="te"><a href="#">Privacy Policy</a></div>
-          <div class="te"><a href="#">Terms & Conditions</a></div>
-        </div>
-      </div>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+            <p>
+                © 2026 Syed Ahmed Wasi. All rights reserved.
+            </p>
+
+        </div>
+
+        <div class="tc">
+
+            <div class="te">
+                <a href="#home">Back to Top</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
 </html>
