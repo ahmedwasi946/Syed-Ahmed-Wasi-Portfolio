@@ -4,11 +4,690 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alex Carter | Frontend Developer & UI Designer</title>
-    <link rel="stylesheet" href="st.css" />
+    
+    <!-- FontAwesome Icons -->
     <script
       src="https://kit.fontawesome.com/71a3d56e56.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Embedded CSS Stylesheet -->
+    <style>
+      /* --- Root Design Tokens --- */
+      :root {
+        --primary-color: #4f46e5;
+        --primary-hover: #4338ca;
+        --bg-dark: #0f172a;
+        --bg-card: #1e293b;
+        --bg-light: #f8fafc;
+        --text-light: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #94a3b8;
+        --accent: #06b6d4;
+        --border-color: #334155;
+        --radius: 8px;
+        --transition: all 0.3s ease;
+      }
+
+      /* --- Global Resets & Typography --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        transition: var(--transition);
+      }
+
+      /* --- Header & Navigation --- */
+      header {
+        padding: 20px 8%;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .nav-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.2rem;
+      }
+
+      .logo img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      .circle {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent);
+        border-radius: 50%;
+      }
+
+      nav {
+        display: flex;
+        gap: 25px;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      .nav-button {
+        background-color: var(--primary-color);
+        padding: 10px 20px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-button:hover {
+        background-color: var(--primary-hover);
+      }
+
+      /* --- Hero Section --- */
+      .hero-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .hero-left h5 {
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .hero-left h1 {
+        font-size: 3.2rem;
+        margin-bottom: 10px;
+      }
+
+      .hero-left h1 span {
+        color: var(--primary-color);
+      }
+
+      .hero-left h2 {
+        font-size: 1.8rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .hero-left p {
+        margin: 20px 0;
+        color: var(--text-muted);
+      }
+
+      .buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .hire, .view {
+        padding: 12px 24px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+      }
+
+      .hire {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .hire:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .view {
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+        color: #fff;
+      }
+
+      .view:hover {
+        background-color: var(--bg-card);
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .icon p {
+        margin: 0;
+      }
+
+      .st-icon {
+        width: 36px;
+        height: 36px;
+        background-color: var(--bg-card);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .st-icon:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .hero-right img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+
+      /* --- Common Section Styles --- */
+      section {
+        padding: 80px 8%;
+      }
+
+      /* --- About Section --- */
+      .about-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-left img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+
+      .about-right h3 {
+        color: var(--accent);
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+      }
+
+      .about-right h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .about-right p {
+        color: var(--text-muted);
+        margin-bottom: 30px;
+      }
+
+      .about-image-containers {
+        display: flex;
+        gap: 20px;
+      }
+
+      .about-user {
+        background-color: var(--bg-card);
+        padding: 20px;
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+      }
+
+      .about-image {
+        font-size: 1.8rem;
+        color: var(--accent);
+      }
+
+      .about-image-details h3 {
+        color: var(--text-light);
+        margin-bottom: 0;
+      }
+
+      .about-image-details p {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+
+      /* --- Skills Section --- */
+      .skills {
+        background-color: #0b1120;
+        text-align: center;
+      }
+
+      .para-skills p {
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .tech {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 10px 0 40px;
+      }
+
+      .skills-diag {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        text-align: left;
+      }
+
+      .one-skill {
+        background-color: var(--bg-card);
+        padding: 15px 20px;
+        border-radius: var(--radius);
+        margin-bottom: 15px;
+        display: grid;
+        grid-template-columns: 40px 100px 1fr;
+        align-items: center;
+      }
+
+      .one-skill .logo {
+        font-size: 1.5rem;
+        color: var(--accent);
+      }
+
+      .one-skill .logo img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .c {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .skill-box {
+        background-color: var(--border-color);
+        height: 8px;
+        width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .skill-value {
+        height: 100%;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      .skill-value-text {
+        font-size: 0.85rem;
+        font-weight: 600;
+        width: 35px;
+      }
+
+      /* --- Featured Projects --- */
+      .featured-projects {
+        text-align: center;
+      }
+
+      .featured-projects h4 {
+        color: var(--accent);
+        letter-spacing: 1px;
+      }
+
+      .featured-projects h2 {
+        font-size: 2rem;
+        margin: 10px 0 40px;
+      }
+
+      .project-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background-color: var(--bg-card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        text-align: left;
+        border: 1px solid var(--border-color);
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .project-exp {
+        padding: 20px;
+      }
+
+      .project-exp h3 {
+        margin-bottom: 10px;
+      }
+
+      .project-exp p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .project-exp button {
+        background-color: transparent;
+        color: var(--accent);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+      }
+
+      .project-exp button:hover {
+        color: var(--primary-color);
+      }
+
+      /* --- Testimonials --- */
+      .testimonial {
+        background-color: #0b1120;
+        text-align: center;
+      }
+
+      .testimonial h4 {
+        color: var(--accent);
+      }
+
+      .testimonial h2 {
+        font-size: 2rem;
+        margin: 10px 0 40px;
+      }
+
+      .review-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .review {
+        background-color: var(--bg-card);
+        padding: 30px;
+        border-radius: var(--radius);
+        text-align: left;
+        position: relative;
+      }
+
+      .quote-icon {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .testimonial-para {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+      }
+
+      .testimonial-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .card-face img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .card-exp h3 {
+        font-size: 1rem;
+      }
+
+      .card-exp p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .card-rating {
+        margin-left: auto;
+        color: #f59e0b;
+        font-size: 0.8rem;
+      }
+
+      /* --- Contact Section --- */
+      .get-in-touch h3 {
+        color: var(--accent);
+        text-align: center;
+      }
+
+      .get-in-touch h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 10px 0 40px;
+      }
+
+      .whole {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 40px;
+      }
+
+      .dabba {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background-color: var(--bg-card);
+        padding: 20px;
+        border-radius: var(--radius);
+        margin-bottom: 20px;
+      }
+
+      .icone {
+        font-size: 1.5rem;
+        color: var(--accent);
+      }
+
+      .icon-info h5 {
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .right form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .right input, .right textarea {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 12px 15px;
+        border-radius: var(--radius);
+        color: #fff;
+        font-family: inherit;
+      }
+
+      .right input:focus, .right textarea:focus {
+        outline: 1px solid var(--primary-color);
+      }
+
+      .right button {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .right button:hover {
+        background-color: var(--primary-hover);
+      }
+
+      /* --- Footer --- */
+      footer {
+        background-color: #070a12;
+        padding-top: 60px;
+      }
+
+      .more-info {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+        padding: 0 8% 40px;
+      }
+
+      .logo-info p {
+        color: var(--text-muted);
+        margin: 15px 0;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .quick h2 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      .quick ul {
+        list-style: none;
+      }
+
+      .quick li {
+        margin-bottom: 10px;
+      }
+
+      .quick a {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .quick a:hover {
+        color: #fff;
+      }
+
+      .quick p {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 5px;
+      }
+
+      .newsletter-form input {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 8px 12px;
+        border-radius: var(--radius);
+        color: #fff;
+        width: 100%;
+      }
+
+      .newsletter-form button {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: var(--radius);
+      }
+
+      .l {
+        height: 1px;
+        background-color: var(--border-color);
+        margin: 0 8%;
+      }
+
+      .last {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 8%;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .tc {
+        display: flex;
+        gap: 20px;
+      }
+
+      .tc a:hover {
+        color: #fff;
+      }
+
+      /* --- Responsive Breakpoints --- */
+      @media (max-width: 900px) {
+        .hero-head, .about-wrapper, .skills-diag, .whole, .more-info {
+          grid-template-columns: 1fr;
+        }
+
+        .links {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        nav {
+          display: none; /* Can be toggled with a mobile menu script */
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header / Navigation -->
@@ -80,12 +759,7 @@
           <h3>ABOUT ME</h3>
           <h2>Passionate about creating digital experiences</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae omnis
-            repellendus commodi quo iure eius sunt aliquam. Autem excepturi
-            aspernatur reiciendis illum libero accusamus quasi ab odio quia
-            suscipit explicabo, obcaecati labore optio unde officiis repellat
-            magni. Tenetur magnam, esse incidunt inventore atque rerum dolore
-            molestias temporibus similique omnis repellat.
+            I am a dedicated frontend developer with a focus on writing clean, accessible code and crafting intuitive digital user experiences. My focus spans HTML/CSS, JavaScript, React, and UI prototyping.
           </p>
           <div class="about-image-containers">
             <div class="about-user">
@@ -129,7 +803,7 @@
             <div class="text-logo">HTML</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="html-skill"></div>
+                <div class="skill-value" id="html-skill" data-target="95%"></div>
               </div>
               <div class="skill-value-text">95%</div>
             </div>
@@ -139,7 +813,7 @@
             <div class="text-logo">CSS</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="css-skill"></div>
+                <div class="skill-value" id="css-skill" data-target="90%"></div>
               </div>
               <div class="skill-value-text">90%</div>
             </div>
@@ -149,7 +823,7 @@
             <div class="text-logo">JS</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="js-skill"></div>
+                <div class="skill-value" id="js-skill" data-target="85%"></div>
               </div>
               <div class="skill-value-text">85%</div>
             </div>
@@ -161,7 +835,7 @@
             <div class="text-logo">REACT</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="react-skill"></div>
+                <div class="skill-value" id="react-skill" data-target="80%"></div>
               </div>
               <div class="skill-value-text">80%</div>
             </div>
@@ -171,7 +845,7 @@
             <div class="text-logo">Git & GitHub</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="git-skill"></div>
+                <div class="skill-value" id="git-skill" data-target="75%"></div>
               </div>
               <div class="skill-value-text">75%</div>
             </div>
@@ -183,7 +857,7 @@
             <div class="text-logo">Figma</div>
             <div class="c">
               <div class="skill-box">
-                <div class="skill-value" id="figma-skill"></div>
+                <div class="skill-value" id="figma-skill" data-target="85%"></div>
               </div>
               <div class="skill-value-text">85%</div>
             </div>
@@ -338,7 +1012,7 @@
       </div>
     </section>
 
-    <!-- Contact Section & Footer -->
+    <!-- Contact Section -->
     <section id="contact" class="get-in-touch">
       <h3>GET IN TOUCH</h3>
       <h2>Let's work together</h2>
@@ -369,7 +1043,7 @@
           </div>
         </div>
         <div class="right">
-          <form action="#" method="post">
+          <form action="#" method="post" id="contact-form">
             <input type="text" placeholder="Your Name" required />
             <input type="email" placeholder="Your Email" required /><br />
             <input type="text" placeholder="Subject" id="sub" required />
@@ -385,6 +1059,7 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <section class="more-info">
         <div class="contain-logo">
@@ -472,5 +1147,24 @@
         </div>
       </div>
     </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Fill skill bars when scrolled into view
+      window.addEventListener('DOMContentLoaded', () => {
+        const skillValues = document.querySelectorAll('.skill-value');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const targetWidth = entry.target.getAttribute('data-target');
+              entry.target.style.width = targetWidth;
+            }
+          });
+        }, { threshold: 0.5 });
+
+        skillValues.forEach(skill => observer.observe(skill));
+      });
+    </script>
   </body>
 </html>
